@@ -1,10 +1,7 @@
 #Caesar cipher: substitution where each letter is replaced by a letter down a fixed number of letters in the alphabt
 #Program should take in parameter/ ask for the string to cipher and the shift factor and then returns the encrypted string
 
-puts "Enter string to cipher"
-get_string = gets.chomp
-puts "Enter shift factor"
-shift = gets.chomp.to_i
+def caesar_cipher(string, shift)
 
 alphabet = 'a'..'z'
 alphabet_cap = 'A'..'Z'
@@ -13,7 +10,7 @@ alphabet_cap = alphabet_cap.to_a
 
 result = []
 
-get_string.split("").each  do |letter|
+string.split("").each  do |letter|
 	if alphabet.include?(letter) #lowercase letters
 		i = alphabet.index(letter) #gets the index of the letter
 		if (i + shift) < 26 
@@ -47,3 +44,12 @@ result.each do |letter|
 	str_result = str_result + letter #change array into string
 end
 puts str_result
+
+end
+
+puts "Enter string to encrypt"
+string = gets.chomp
+puts "Enter shift for encryption"
+shift = gets.chomp.to_i
+
+caesar_cipher(string, shift)
